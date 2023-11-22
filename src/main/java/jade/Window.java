@@ -15,6 +15,8 @@ public class Window {
     private int height, width;
     private String title;
     private long glfwWindow;
+    private float r, g, b, a;
+    private boolean fadeToBlack = false;
 
     //singleton so that only one instance is created
     private static Window window = null;
@@ -24,6 +26,10 @@ public class Window {
         this.height = 1080;
         this.width = 1920;
         this.title = "MARIO";
+        r = 1;
+        g = 1;
+        b = 1;
+        a = 1;
     }
 
     // function to call the window
@@ -72,6 +78,12 @@ public class Window {
             throw new IllegalStateException("failed to create GLFW Window");
         }
 
+        //set up mouse listener callbacks
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+
         //make openGL context current
         glfwMakeContextCurrent(glfwWindow);
 
@@ -92,8 +104,18 @@ public class Window {
             // poll events
             glfwPollEvents();
 
-            glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+            glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
+
+            if (fadeToBlack) {
+                r = Math.max(r - 0.01f, 0);
+                g = Math.max(g - 0.01f, 0);
+                b = Math.max(b - 0.01f, 0);
+            }
+
+            if (KeyListener.isKeyPressed(GLFW_KEY_SPACE)) {
+                fadeToBlack = true;
+            }
 
             glfwSwapBuffers(glfwWindow);
         }
