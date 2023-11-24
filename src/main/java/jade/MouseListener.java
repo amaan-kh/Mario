@@ -7,6 +7,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
 
 public class MouseListener {
 
+    //singleton mouse listener object
     private static MouseListener instance;
     private double scrollX, scrollY;
     private double xPos, yPos, lastX, lastY;
