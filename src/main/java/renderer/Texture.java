@@ -32,6 +32,7 @@ public class Texture {
         IntBuffer width = BufferUtils.createIntBuffer(1);
         IntBuffer height = BufferUtils.createIntBuffer(1);
         IntBuffer channels = BufferUtils.createIntBuffer(1);
+        //image buffer
         ByteBuffer image = stbi_load(filepath, width, height, channels, 0);
 
         if (image != null) {
