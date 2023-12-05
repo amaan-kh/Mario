@@ -28,10 +28,10 @@ public class Window {
         this.height = 1080;
         this.width = 1920;
         this.title = "MARIO";
-        r = 0;
-        g = 0;
-        b = 0;
-        a = 1;
+        r = 0.7f;
+        g = 0.2f;
+        b = 0.1f;
+        a = 1f;
     }
 
 
