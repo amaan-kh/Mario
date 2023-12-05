@@ -46,7 +46,7 @@ public class RenderBatch {
     public RenderBatch(int maxBatchSize) {
 
         shader = AssetPool.getShader("assets/shaders/default.glsl");
-        shader.compile();
+        // shader.compile();
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
 
@@ -100,7 +100,7 @@ public class RenderBatch {
 
         if(numSprites >= this.maxBatchSize) {
             this.hasRoom = false;
-            this.textures = new ArrayList<>();
+            //this.textures = new ArrayList<>();
         }
     }
     public void render() {
@@ -213,5 +213,11 @@ public class RenderBatch {
 
     public boolean hasRoom() {
         return this.hasRoom;
+    }
+    public boolean hasTextureRoom() {
+        return this.textures.size() < 8;
+    }
+    public boolean hasTexture(Texture tex) {
+        return this.textures.contains(tex);
     }
 }
