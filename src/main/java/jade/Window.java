@@ -14,6 +14,8 @@ public class Window {
     private int height, width;
     private String title;
     private long glfwWindow;
+    private ImGuiLayer imGuiLayer;
+
     public float r, g, b, a;
     private boolean fadeToBlack = false;
 
@@ -63,6 +65,20 @@ public class Window {
         return get().currentScene;
     }
 
+    public static int getWidth() {
+        return get().width;
+    }
+    public static void setWidth(int newWidth) {
+        get().width = newWidth;
+    }
+
+    public static int getHeight() {
+        return get().height;
+    }
+    public static void setHeight(int newHeight) {
+        get().height = newHeight;
+    }
+
     // function to initalise and run event loop
     public void run() {
         System.out.println("Hello LWJGL" + Version.getVersion() + "!");
@@ -106,6 +122,10 @@ public class Window {
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
         glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+        glfwSetWindowSizeCallback(glfwWindow,(w, newWidth, newHeight) -> {
+            Window.setWidth(newWidth);
+            Window.setHeight(newHeight);
+        });
 
         //make openGL context current
         glfwMakeContextCurrent(glfwWindow);
@@ -121,6 +141,8 @@ public class Window {
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        this.imGuiLayer = new ImGuiLayer(glfwWindow);
+        this.imGuiLayer.initImGui();
 
 
         Window.changeScene(0);
@@ -142,6 +164,8 @@ public class Window {
             if (dt >= 0) {
                 currentScene.update(dt);
             }
+
+            this.imGuiLayer.update(dt);
             glfwSwapBuffers(glfwWindow);
 
             endTime = (float) glfwGetTime();
