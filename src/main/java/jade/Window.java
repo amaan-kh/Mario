@@ -28,9 +28,9 @@ public class Window {
         this.height = 1080;
         this.width = 1920;
         this.title = "MARIO";
-        r = 0.7f;
-        g = 0.2f;
-        b = 0.1f;
+        r = 1.0f;
+        g = 1.0f;
+        b = 1.0f;
         a = 1f;
     }
 
@@ -118,6 +118,10 @@ public class Window {
 
         // creates capabilities available for use in the current context
         GL.createCapabilities();
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
 
         Window.changeScene(0);
     }
