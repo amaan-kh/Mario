@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3815301-fa9d-4450-b455-779d72b044f4" name="Changes" comment="serialization and deserialization added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/Rigidbody.java" afterDir="false" />
+    <list default="true" id="c3815301-fa9d-4450-b455-779d72b044f4" name="Changes" comment="exposed variables to level editor">
+      <change afterPath="$PROJECT_DIR$/assets/images/spritesheets/decorationsAndBlocks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/spritesheets/icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/spritesheets/pipes.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderer/Texture.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "C:/dev/marioYoutube/mario/assets/fonts",
+    "last_opened_file_path": "C:/dev/marioYoutube/mario/assets/images/spritesheets",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3678161",
@@ -53,6 +58,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\marioYoutube\mario\assets\images\spritesheets" />
       <recent name="C:\dev\marioYoutube\mario\assets\fonts" />
       <recent name="C:\dev\marioYoutube\mario\assets\images" />
     </key>
@@ -201,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701976245052</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="exposed variables to level editor">
+      <created>1701977873100</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701977873100</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,6 +246,7 @@
     <MESSAGE value="integrating ImGui" />
     <MESSAGE value="imgui fonts and scene integration" />
     <MESSAGE value="serialization and deserialization added" />
-    <option name="LAST_COMMIT_MESSAGE" value="serialization and deserialization added" />
+    <MESSAGE value="exposed variables to level editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="exposed variables to level editor" />
   </component>
 </project>

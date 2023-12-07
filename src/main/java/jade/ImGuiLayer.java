@@ -154,7 +154,7 @@ public class ImGuiLayer {
 
         // Fonts merge example
         fontConfig.setPixelSnapH(true); // When enabled, all fonts added with this config would be merged with the previously added font
-        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf",32,fontConfig);
+        fontAtlas.addFontFromFileTTF("assets/fonts/segoeui.ttf",18,fontConfig);
 
         fontConfig.destroy(); // After all fonts were added we don't need this config more
 

@@ -6,13 +6,15 @@ import org.joml.Vector3f;
 
 public class Camera {
 
-    private Matrix4f viewMatrix, projectionMatrix;
+    private Matrix4f viewMatrix,inverseProjection,inverseView, projectionMatrix;
     public Vector2f position;
 
     public Camera(Vector2f position) {
         this.position = position;
         this.viewMatrix = new Matrix4f();
         this.projectionMatrix = new Matrix4f();
+        this.inverseView= new Matrix4f();
+        this.inverseProjection = new Matrix4f();
         adjustProjection();
     }
 
@@ -20,6 +22,7 @@ public class Camera {
         projectionMatrix.identity();
         projectionMatrix.ortho(0.0f, 32.0f * 40.0f, 0.0f, 32.0f * 21.0f, 0.0f, 100.0f);
         //projectionMatrix.ortho(-32.0f * 40.0f,0.0f , 0.0f, 32.0f * 21.0f, 0.0f, 100.0f);
+        projectionMatrix.invert(inverseProjection);
 
     }
 
@@ -31,8 +34,18 @@ public class Camera {
         viewMatrix.lookAt(new Vector3f(position.x, position.y, 20.0f),
                                                 cameraFront.add(position.x, position.y, 0.0f),
                                                 cameraUp);
+        this.viewMatrix.invert(inverseView);
         return this.viewMatrix;
     }
+
+    public Matrix4f getInverseProjection() {
+        return inverseProjection;
+    }
+
+    public Matrix4f getInverseView() {
+        return inverseView;
+    }
+
     public Matrix4f getProjectionMatrix() {
         return this.projectionMatrix;
     }
