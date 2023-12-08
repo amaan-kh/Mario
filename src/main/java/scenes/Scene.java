@@ -109,8 +109,6 @@ public abstract class Scene {
             }
             maxGoId++;
             maxCompId++;
-            System.out.println(maxCompId);
-            System.out.println(maxGoId);
 
             GameObject.init(maxGoId);
             Component.init(maxCompId);
