@@ -9,6 +9,7 @@ import jade.*;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
+import org.lwjgl.system.CallbackI;
 import renderer.DebugDraw;
 import scenes.Scene;
 import util.AssetPool;
@@ -66,10 +67,15 @@ public class LevelEditorScene extends Scene {
         AssetPool.getTexture("assets/images/blendImage2.png");
 
     }
-
+    float x = 0.0f;
+    float y = 0.0f;
     @Override
     public void update(float dt) {
         levelEditorStuff.update(dt);
+        DebugDraw.addCircle(new Vector2f(x,y), 64,new Vector3f(0,1,0),1);
+        x += 5 * dt;
+        y += 52 * dt;
+
         //System.out.println("FPS: "+ (1.0f)/dt);
         for (GameObject go : this.gameObjects) {
             go.update(dt);
