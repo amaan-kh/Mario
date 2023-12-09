@@ -85,6 +85,15 @@ public class Window {
         get().height = newHeight;
     }
 
+    public static Framebuffer getFramebuffer() {
+        return get().framebuffer;
+    }
+
+    public static float getTargetAspectRatio() {
+        return 16.0f/9.0f;
+    }
+
+
     // function to initalise and run event loop
     public void run() {
         System.out.println("Hello LWJGL" + Version.getVersion() + "!");
@@ -151,6 +160,7 @@ public class Window {
         this.imGuiLayer.initImGui();
 
         this.framebuffer = new Framebuffer(1920,1080);
+        glViewport(0,0,1920,1080);
 
 
 
@@ -170,7 +180,7 @@ public class Window {
             glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
-            //this.framebuffer.bind();
+            this.framebuffer.bind();
             if (dt >= 0) {
                 DebugDraw.draw();
                 currentScene.update(dt);
