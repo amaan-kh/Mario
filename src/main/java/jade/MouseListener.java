@@ -116,7 +116,7 @@ public class MouseListener {
         Camera camera = Window.getScene().camera();
         Matrix4f viewProjection = new Matrix4f();
         camera.getInverseView().mul(camera.getInverseProjection(), viewProjection);
-        tmp.mul(Window.getScene().camera().getInverseProjection()).mul(Window.getScene().camera().getInverseView());
+        tmp.mul(viewProjection);
         currentX = tmp.x;
         return currentX;
     }
@@ -128,7 +128,7 @@ public class MouseListener {
         Camera camera = Window.getScene().camera();
         Matrix4f viewProjection = new Matrix4f();
         camera.getInverseView().mul(camera.getInverseProjection(), viewProjection);
-        tmp.mul(Window.getScene().camera().getInverseProjection()).mul(Window.getScene().camera().getInverseView());
+        tmp.mul(viewProjection);
         currentY = tmp.y;
         return currentY;
     }

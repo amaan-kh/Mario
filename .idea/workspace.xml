@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3815301-fa9d-4450-b455-779d72b044f4" name="Changes" comment="game viewport added">
+    <list default="true" id="c3815301-fa9d-4450-b455-779d72b044f4" name="Changes" comment="mouse screen coordinates fixed to viewport">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/editor/GameViewWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702117318502</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="mouse screen coordinates fixed to viewport">
+      <created>1702119539764</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1702119539764</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,7 +303,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mouse and key listeners added" />
     <MESSAGE value="basic scene editing works" />
     <MESSAGE value="shaders working rectangle drawn" />
     <MESSAGE value="shader abstraction" />
@@ -321,6 +327,7 @@
     <MESSAGE value="added framebuffer" />
     <MESSAGE value="docking windows supported" />
     <MESSAGE value="game viewport added" />
-    <option name="LAST_COMMIT_MESSAGE" value="game viewport added" />
+    <MESSAGE value="mouse screen coordinates fixed to viewport" />
+    <option name="LAST_COMMIT_MESSAGE" value="mouse screen coordinates fixed to viewport" />
   </component>
 </project>
