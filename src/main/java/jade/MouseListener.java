@@ -14,7 +14,7 @@ public class MouseListener {
     private static MouseListener instance;
     private double scrollX, scrollY;
     private double xPos, yPos, lastX, lastY;
-    private boolean mouseButtonPressed[] = new boolean[3];
+    private boolean mouseButtonPressed[] = new boolean[9];
     private boolean isDragging;
 
     private Vector2f gameViewportPos = new Vector2f();
@@ -108,6 +108,16 @@ public class MouseListener {
             return false;
         }
 
+    }
+    public static float getScreenX() {
+        float currentX = getX() - get().gameViewportPos.x;
+        currentX = (currentX / get().gameViewportSize.x) * 1920;
+        return currentX;
+    }
+    public static float getScreenY() {
+        float currentY = getY() - get().gameViewportPos.y;
+        currentY = 1080 -((currentY / get().gameViewportSize.y) * 1080);
+        return currentY;
     }
     public static float getOrthoX() {
         float currentX = getX() - get().gameViewportPos.x;

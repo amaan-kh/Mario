@@ -3,11 +3,11 @@ package jade;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
-import renderer.DebugDraw;
-import renderer.Framebuffer;
+import renderer.*;
 import scenes.LevelScene;
 import scenes.Scene;
 import scenes.LevelEditorScene;
+import util.AssetPool;
 
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -22,6 +22,7 @@ public class Window {
     private long glfwWindow;
     private ImGuiLayer imGuiLayer;
     private Framebuffer framebuffer;
+    private PickingTexture pickingTexture;
 
     public float r, g, b, a;
     private boolean fadeToBlack = false;
@@ -37,10 +38,10 @@ public class Window {
         this.height = 1080;
         this.width = 1920;
         this.title = "MARIO";
-        r = 1.0f;
-        g = 1.0f;
-        b = 1.0f;
-        a = 1f;
+        r = 1;
+        g = 1;
+        b = 1;
+        a = 1;
     }
 
 
@@ -54,6 +55,7 @@ public class Window {
                 break;
             default:
                 assert false: "Unknown Scene '" + newScene + "'";
+                break;
         }
         currentScene.load();
         currentScene.init();
@@ -160,7 +162,11 @@ public class Window {
         this.imGuiLayer.initImGui();
 
         this.framebuffer = new Framebuffer(1920,1080);
+        this.pickingTexture = new PickingTexture(1920, 1080);
+
         glViewport(0,0,1920,1080);
+
+
 
 
 
@@ -172,10 +178,35 @@ public class Window {
         float endTime;
         float dt = -1.0f;
 
+        Shader defaultShader = AssetPool.getShader("assets/shaders/default.glsl");
+        Shader pickingShader = AssetPool.getShader("assets/shaders/pickingShader.glsl");
+
         while (!glfwWindowShouldClose(glfwWindow)) {
 
             // poll events
             glfwPollEvents();
+            // render 1 : render to picking texture
+            glDisable(GL_BLEND);
+            pickingTexture.enableWriting();
+
+            glViewport(0, 0, 1920, 1080);
+            glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            Renderer.bindShader(pickingShader);
+            currentScene.render();
+
+            if (MouseListener.mouseButtonDown(GLFW_MOUSE_BUTTON_LEFT)) {
+                int x = (int)MouseListener.getScreenX();
+                int y = (int)MouseListener.getScreenY();
+                System.out.println(pickingTexture.readPixel(x, y));
+            }
+
+            pickingTexture.disableWriting();
+            glEnable(GL_BLEND);
+
+
+            // render 2 : render to actual game
             DebugDraw.beginFrame();
             this.framebuffer.bind();
 
@@ -184,7 +215,10 @@ public class Window {
 
             if (dt >= 0) {
                 DebugDraw.draw();
+                Renderer.bindShader(defaultShader);
+
                 currentScene.update(dt);
+                currentScene.render();
             }
             this.framebuffer.unbind();
 

@@ -87,8 +87,12 @@ public class LevelEditorScene extends Scene {
         for (GameObject go : this.gameObjects) {
             go.update(dt);
         }
-        this.renderer.render();
 
+    }
+
+    @Override
+    public void render () {
+        this.renderer.render();
     }
     @Override
     public void imgui() {

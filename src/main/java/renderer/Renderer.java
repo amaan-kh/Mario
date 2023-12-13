@@ -4,13 +4,13 @@ import components.SpriteRenderer;
 import jade.GameObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 public class Renderer {
     private final int MAX_BATCH_SIZE = 1000;
     private List<RenderBatch> batches;
+    private static Shader currentshader;
 
     public Renderer() {
         this.batches = new ArrayList<>();
@@ -42,7 +42,16 @@ public class Renderer {
             Collections.sort(batches);
         }
     }
+
+    public static void bindShader(Shader shader) {
+        currentshader = shader;
+    }
+
+    public static Shader getBoundShader() {
+        return currentshader;
+    }
     public void render() {
+        currentshader.use();
         for (RenderBatch batch: batches) {
             batch.render();
         }
