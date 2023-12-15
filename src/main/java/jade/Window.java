@@ -94,6 +94,10 @@ public class Window {
         return 16.0f/9.0f;
     }
 
+    public static ImGuiLayer getImGuiLayer() {
+        return get().imGuiLayer;
+    }
+
 
     // function to initalise and run event loop
     public void run() {

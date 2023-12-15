@@ -1,6 +1,7 @@
 package components;
 import imgui.ImGui;
 import jade.GameObject;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
@@ -67,6 +68,12 @@ public abstract class Component {
                     float[] imVec = {val.x, val.y, val.z, val.w};
                     if (ImGui.dragFloat4(name + ": ", imVec)) {
                         val.set(imVec[0], imVec[1], imVec[2], imVec[3]);
+                    }
+                } else if (type == Vector2f.class) {
+                    Vector2f val = (Vector2f)value;
+                    float[] imVec = {val.x, val.y};
+                    if (ImGui.dragFloat2(name + ": ", imVec)) {
+                        val.set(imVec[0], imVec[1]);
                     }
                 }
 

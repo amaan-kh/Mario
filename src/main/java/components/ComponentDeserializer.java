@@ -1,8 +1,6 @@
 package components;
 
 import com.google.gson.*;
-import components.Component;
-
 import java.lang.reflect.Type;
 
 public class ComponentDeserializer implements JsonSerializer<Component>,
