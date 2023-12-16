@@ -33,8 +33,9 @@ public class SpriteRenderer extends Component {
     public void start() {
         this.lastTransform = gameObject.transform.copy();
     }
+
     @Override
-    public void update(float dt) {
+    public void editorUpdate(float dt) {
         if (!this.lastTransform.equals(this.gameObject.transform)) {
             this.gameObject.transform.copy(this.lastTransform);
             this.isDirty = true;
@@ -46,6 +47,9 @@ public class SpriteRenderer extends Component {
         if(JImGui.colorPicker4("Color Picker", this.color)) {
             this.isDirty = true;
         }
+    }
+    public void setDirty() {
+        this.isDirty = true;
     }
     public Vector4f getColor() {
         return this.color;

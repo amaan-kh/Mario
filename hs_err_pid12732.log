@@ -36,7 +36,7 @@ j  org.lwjgl.opengl.GL11C.nglTexImage2D(IIIIIIIIJ)V+0
 j  org.lwjgl.opengl.GL11C.glTexImage2D(IIIIIIIILjava/nio/ByteBuffer;)V+17
 j  org.lwjgl.opengl.GL11.glTexImage2D(IIIIIIIILjava/nio/ByteBuffer;)V+14
 j  renderer.Texture.<init>(Ljava/lang/String;)V+132
-j  scenes.LevelEditorScene.init()V+45
+j  scenes.LevelEditorSceneInitializer.init()V+45
 j  jade.Window.changeScene(I)V+41
 j  jade.Window.init()V+162
 j  jade.Window.run()V+15
