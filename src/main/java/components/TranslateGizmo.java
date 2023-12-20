@@ -1,16 +1,7 @@
 package components;
 
 import editor.PropertiesWindow;
-import jade.GameObject;
 import jade.MouseListener;
-import jade.Prefabs;
-import jade.Window;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
-
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class TranslateGizmo extends Gizmo {
 

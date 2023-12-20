@@ -42,6 +42,7 @@ public class PropertiesWindow {
     public void imgui() {
         if (activeGameObject != null) {
             ImGui.begin("Properties");
+
             if (ImGui.beginPopupContextWindow("ComponenetAdder")) {
                 if (ImGui.menuItem("Add Rigidbody")) {
                     if (activeGameObject.getComponent(Rigidbody2D.class) == null){

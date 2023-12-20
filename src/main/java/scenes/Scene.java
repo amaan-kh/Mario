@@ -22,13 +22,14 @@ import java.util.List;
 import java.util.Optional;
 
 public  class Scene {
-    private Renderer renderer = new Renderer();
+    private Renderer renderer;
     private Camera camera;
     private boolean isRunning ;
     private List<GameObject> gameObjects ;
     private Physics2D physics2D;
 
     private SceneInitializer sceneInitializer;
+
     public Scene (SceneInitializer sceneInitializer) {
         this.sceneInitializer = sceneInitializer;
         this.physics2D = new Physics2D();

@@ -28,8 +28,8 @@ public class ImGuiLayer {
     private GameViewWindow gameViewWindow;
     private PropertiesWindow propertiesWindow;
     private MenuBar menubar;
-    public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
 
+    public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
         this.gameViewWindow = new GameViewWindow();
         this.propertiesWindow = new PropertiesWindow(pickingTexture);
@@ -108,7 +108,6 @@ public class ImGuiLayer {
 
             if (!io.getWantCaptureKeyboard()) {
                 KeyListener.keyCallback(w, key, scancode, action, mods);
-
             }
         });
 

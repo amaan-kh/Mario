@@ -15,6 +15,7 @@ public class MenuBar {
                 if (ImGui.menuItem("Load", "Ctrl + O")) {
                     EventSystem.notify(null, new Event(EventType.LoadLevel));
                 }
+                ImGui.endMenu();
         }
         ImGui.endMainMenuBar();
     }

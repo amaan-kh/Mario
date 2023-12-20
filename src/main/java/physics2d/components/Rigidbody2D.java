@@ -5,8 +5,7 @@ import org.jbox2d.dynamics.Body;
 import org.joml.Vector2f;
 import physics2d.enums.BodyType;
 
-public class Rigidbody2D  extends Component {
-
+public class Rigidbody2D extends Component {
     private Vector2f velocity = new Vector2f();
     private float angularDamping = 0.8f;
     private float linearDamping = 0.9f;
@@ -24,7 +23,7 @@ public class Rigidbody2D  extends Component {
             this.gameObject.transform.position.set(
                     rawBody.getPosition().x, rawBody.getPosition().y
             );
-            this.gameObject.transform.rotation = (float) Math.toDegrees(rawBody.getAngle());
+            this.gameObject.transform.rotation = (float)Math.toDegrees(rawBody.getAngle());
         }
     }
 

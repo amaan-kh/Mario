@@ -5,11 +5,15 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import jade.*;
 import org.joml.Vector2f;
+//import physics2dtmp.PhysicsSystem2D;
+//import physics2dtmp.rigidbody.Rigidbody2D;
 import util.AssetPool;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
+
     private Spritesheet sprites;
-    private GameObject levelEditorStuff ;
+    private GameObject levelEditorStuff;
+
     public LevelEditorSceneInitializer() {
 
     }
@@ -26,22 +30,18 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
         levelEditorStuff.addComponent(new EditorCamera(scene.camera()));
         levelEditorStuff.addComponent(new GizmoSystem(gizmos));
         scene.addGameObjectToScene(levelEditorStuff);
-
     }
-
-
 
     @Override
     public void loadResources(Scene scene) {
         AssetPool.getShader("assets/shaders/default.glsl");
-        //sets a new spritesheet (path,spritsheetObject)
-        //spritesheetObject (texture,details)
+
         AssetPool.addSpritesheet("assets/images/spritesheets/decorationsAndBlocks.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/spritesheets/decorationsAndBlocks.png"),
-                        16,16,81,0));
+                        16, 16, 81, 0));
         AssetPool.addSpritesheet("assets/images/gizmos.png",
                 new Spritesheet(AssetPool.getTexture("assets/images/gizmos.png"),
-                                24, 48, 3, 0));
+                        24, 48, 3, 0));
         AssetPool.getTexture("assets/images/blendImage2.png");
 
         for (GameObject g : scene.getGameObjects()) {
@@ -52,17 +52,16 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
                 }
             }
         }
-
     }
-
-
 
     @Override
     public void imgui() {
-        ImGui.begin("level editor stuff");
+        ImGui.begin("Level Editor Stuff");
         levelEditorStuff.imgui();
         ImGui.end();
+
         ImGui.begin("Test window");
+
         ImVec2 windowPos = new ImVec2();
         ImGui.getWindowPos(windowPos);
         ImVec2 windowSize = new ImVec2();
@@ -80,7 +79,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
             ImGui.pushID(i);
             if (ImGui.imageButton(id, spriteWidth, spriteHeight, texCoords[2].x, texCoords[0].y, texCoords[0].x, texCoords[2].y)) {
-                GameObject object = Prefabs.generateSpriteObject(sprite, 32, 32);
+                GameObject object = Prefabs.generateSpriteObject(sprite, 0.25f, 0.25f);
                 levelEditorStuff.getComponent(MouseControls.class).pickupObject(object);
             }
             ImGui.popID();

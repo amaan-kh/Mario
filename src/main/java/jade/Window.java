@@ -244,11 +244,6 @@ public class Window implements Observer {
                 currentScene.save();
                 break;
         }
-        if (event.type == EventType.GameEngineStartPlay) {
-            System.out.println("Starting play");
-        }   else if (event.type == EventType.GameEngineStopPlay) {
-            System.out.println("Ending play!");
-        }
 
     }
 
