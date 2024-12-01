@@ -1,4 +1,3 @@
 # 2D game engine for mario
-I made this coding along a free code camp tutorial by GameswithGabe. I just wanted to get an idea about graphics programming and had recently learnt Java in college so why not!
+Developed as part of a tutorial by GameswithGabe on freeCodeCamp, this project provided valuable hands-on experience in graphics programming. Leveraging my recent knowledge of Java acquired during college, I created a 2D game engine to gain a deeper understanding of game development concepts. Please note that this engine is a learning project and is not intended for production use.
 
-#### Not recommended for Use in any sense
